@@ -11,3 +11,9 @@ public struct ReturnMessage: Codable {
 	public var message: Message
 	public var status: ViStatus
 }
+
+extension Message {
+	public func returnMessage(withStatus status: ViStatus) -> ReturnMessage {
+		return ReturnMessage(message: self, status: status)
+	}
+}
