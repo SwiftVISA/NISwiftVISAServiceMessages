@@ -9,8 +9,8 @@ import CVISA
 
 public struct ViOpenMessage: Codable {
 	public var session: ViSession
-	public var resourceName: String?
+	public var resourceName: String
 	public var mode: ViAccessMode
 	public var timeout: ViUInt32
-	public var vi: ViSession?
+	public var vi: ViSession
 }
