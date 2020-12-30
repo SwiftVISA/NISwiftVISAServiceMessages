@@ -16,7 +16,7 @@ public struct MessageType: Codable, Hashable {
 }
 
 extension MessageType {
-	static var messageMap: [MessageType: Message.Type] = [
+	public static var messageMap: [MessageType: Message.Type] = [
 		.viOpen : ViOpenMessage.self,
 		.viClose : ViCloseMessage.self,
 		.viOpenDefaultRM : ViOpenDefaultRMMessage.self
