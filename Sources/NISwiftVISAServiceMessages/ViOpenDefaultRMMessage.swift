@@ -8,13 +8,5 @@
 import CVISA
 
 public struct ViOpenDefaultRMMessage: Codable {
-	public var vi: ViObject
-}
-
-extension ViOpenDefaultRMMessage: Message {
-	public static let type = MessageType.viOpenDefaultRM
-}
-
-extension MessageType {
-	static let viOpenDefaultRM = Self(named: "viOpenDefaultRM")
+	public var vi: ViSession?
 }
