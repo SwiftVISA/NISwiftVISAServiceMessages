@@ -7,6 +7,6 @@
 
 import CVISA
 
-struct ViCloseMessage: Codable {
-	var vi: ViObject
+public struct ViCloseMessage: Codable {
+	public var vi: ViObject
 }

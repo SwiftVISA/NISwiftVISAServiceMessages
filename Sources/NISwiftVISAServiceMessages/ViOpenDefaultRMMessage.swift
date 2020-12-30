@@ -7,6 +7,6 @@
 
 import CVISA
 
-struct ViOpenDefaultRMMessage: Codable {
-	var vi: ViObject
+public struct ViOpenDefaultRMMessage: Codable {
+	public var vi: ViObject
 }
