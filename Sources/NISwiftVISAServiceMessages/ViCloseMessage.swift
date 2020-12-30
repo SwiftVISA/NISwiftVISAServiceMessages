@@ -9,4 +9,8 @@ import CVISA
 
 public struct ViCloseMessage: Codable {
 	public var vi: ViSession
+	
+	public init(vi: ViSession) {
+		self.vi = vi
+	}
 }
