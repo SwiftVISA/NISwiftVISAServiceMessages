@@ -9,14 +9,14 @@ import Foundation
 import CVISA
 
 public enum Message: Codable {
-	case viOpen(ViOpenMessage)
-	case viClose(ViCloseMessage)
-	case viOpenDefaultRM(ViOpenDefaultRMMessage)
+	case viOpenMessage(ViOpenMessage)
+	case viCloseMessage(ViCloseMessage)
+	case viOpenDefaultRMMessage(ViOpenDefaultRMMessage)
 	
 	public enum CodingKeys: CodingKey {
-		case viOpen
-		case viClose
-		case viOpenDefaultRM
+		case viOpenMessage
+		case viCloseMessage
+		case viOpenDefaultRMMessage
 	}
 	
 	public init(from decoder: Decoder) throws {
@@ -24,25 +24,25 @@ public enum Message: Codable {
 		let key = container.allKeys.first
 		
 		switch key {
-		case .viOpen:
+		case .viOpenMessage:
 			let message = try container.decode(
 				ViOpenMessage.self,
-				forKey: .viOpen
+				forKey: .viOpenMessage
 			)
 			
-			self = .viOpen(message)
-		case .viClose:
+			self = .viOpenMessage(message)
+		case .viCloseMessage:
 			let message = try container.decode(
 				ViCloseMessage.self,
-				forKey: .viClose)
+				forKey: .viCloseMessage)
 			
-			self = .viClose(message)
-		case .viOpenDefaultRM:
+			self = .viCloseMessage(message)
+		case .viOpenDefaultRMMessage:
 			let message = try container.decode(
 				ViOpenDefaultRMMessage.self,
-				forKey: .viOpenDefaultRM)
+				forKey: .viOpenDefaultRMMessage)
 			
-			self = .viOpenDefaultRM(message)
+			self = .viOpenDefaultRMMessage(message)
 		default:
 			throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: container.codingPath, debugDescription: "Unable to decode"))
 		}
@@ -52,12 +52,12 @@ public enum Message: Codable {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		
 		switch self {
-		case .viOpen(let message):
-			try container.encode(message, forKey: .viOpen)
-		case .viClose(let message):
-			try container.encode(message, forKey: .viClose)
-		case .viOpenDefaultRM(let message):
-			try container.encode(message, forKey: .viOpenDefaultRM)
+		case .viOpenMessage(let message):
+			try container.encode(message, forKey: .viOpenMessage)
+		case .viCloseMessage(let message):
+			try container.encode(message, forKey: .viCloseMessage)
+		case .viOpenDefaultRMMessage(let message):
+			try container.encode(message, forKey: .viOpenDefaultRMMessage)
 		}
 	}
 }
