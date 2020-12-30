@@ -14,3 +14,11 @@ public struct ViOpenMessage: Codable {
 	public var timeout: ViUInt32
 	public var vi: ViSession!
 }
+
+extension ViOpenMessage: Message {
+	public static let type = MessageType.viOpen
+}
+
+extension MessageType {
+	static let viOpen = Self(named: "viOpen")
+}

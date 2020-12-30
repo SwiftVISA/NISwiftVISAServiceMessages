@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol Message: Codable {
-	static var name: String { get }
+	static var type: MessageType { get }
 }
