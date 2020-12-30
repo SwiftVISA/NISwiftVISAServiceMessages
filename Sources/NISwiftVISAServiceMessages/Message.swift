@@ -12,11 +12,15 @@ public enum Message: Codable {
 	case viOpenMessage(ViOpenMessage)
 	case viCloseMessage(ViCloseMessage)
 	case viOpenDefaultRMMessage(ViOpenDefaultRMMessage)
+	case viReadMessage(ViReadMessage)
+	case viWriteMessage(ViWriteMessage)
 	
 	public enum CodingKeys: CodingKey {
 		case viOpenMessage
 		case viCloseMessage
 		case viOpenDefaultRMMessage
+		case viReadMessage
+		case viWriteMessage
 	}
 	
 	public init(from decoder: Decoder) throws {
@@ -43,6 +47,18 @@ public enum Message: Codable {
 				forKey: .viOpenDefaultRMMessage)
 			
 			self = .viOpenDefaultRMMessage(message)
+		case .viReadMessage:
+			let message = try container.decode(
+				ViReadMessage.self,
+				forKey: .viReadMessage)
+			
+			self = .viReadMessage(message)
+		case .viWriteMessage:
+			let message = try container.decode(
+				ViWriteMessage.self,
+				forKey: .viWriteMessage)
+			
+			self = .viWriteMessage(message)
 		default:
 			throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: container.codingPath, debugDescription: "Unable to decode"))
 		}
@@ -58,6 +74,10 @@ public enum Message: Codable {
 			try container.encode(message, forKey: .viCloseMessage)
 		case .viOpenDefaultRMMessage(let message):
 			try container.encode(message, forKey: .viOpenDefaultRMMessage)
+		case .viReadMessage(let message):
+			try container.encode(message, forKey: .viReadMessage)
+		case .viWriteMessage(let message):
+			try container.encode(message, forKey: .viWriteMessage)
 		}
 	}
 }
