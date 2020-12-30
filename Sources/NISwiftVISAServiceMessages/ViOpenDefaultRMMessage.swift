@@ -8,5 +8,5 @@
 import CVISA
 
 public struct ViOpenDefaultRMMessage: Codable {
-	public var vi: ViSession?
+	public var vi: ViSession
 }
