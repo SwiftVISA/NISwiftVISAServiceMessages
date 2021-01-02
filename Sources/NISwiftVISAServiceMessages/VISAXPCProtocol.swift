@@ -23,7 +23,6 @@ import CVISA
 	)
 	
 	func openDefaultRM(
-		vi: ViSession,
 		withReply reply: @escaping (ViStatus) -> Void
 	)
 	
