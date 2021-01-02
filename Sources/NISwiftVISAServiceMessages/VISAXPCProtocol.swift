@@ -8,7 +8,7 @@
 import Foundation
 import CVISA
 
-@objc protocol VISAXPCProtocol {
+@objc public protocol VISAXPCProtocol {
 	func close(
 		vi: ViSession,
 		withReply reply: @escaping (ViStatus) -> Void
