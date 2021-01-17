@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CVISA
+import CVISATypes
 
 @objc public protocol VISAXPCProtocol {
 	func close(
