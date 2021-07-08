@@ -1,9 +1,10 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
 	name: "NISwiftVISAServiceMessages",
+  platforms: [.macOS("12.0")],
 	products: [
 		.library(
 			name: "NISwiftVISAServiceMessages",

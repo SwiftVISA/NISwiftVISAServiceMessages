@@ -8,9 +8,6 @@
 import Foundation
 import CVISATypes
 
-#if swift(>=5.5)
-
-@available(iOS 15.0, macOS 12.0, *)
 extension VISAXPCProtocol {
   /// Closes the given session.
   /// - Parameters:
@@ -88,5 +85,3 @@ extension VISAXPCProtocol {
     }
   }
 }
-
-#endif
