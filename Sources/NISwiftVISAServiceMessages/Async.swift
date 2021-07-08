@@ -8,7 +8,7 @@
 import Foundation
 import CVISATypes
 
-extension VISAXPCProtocol {
+public extension VISAXPCProtocol {
   /// Closes the given session.
   /// - Parameters:
   ///   - vi: The session to close.
