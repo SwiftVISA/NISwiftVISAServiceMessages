@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  VISAXPCProtocol.swift
 //  
 //
 //  Created by Connor Barnes on 1/1/21.
@@ -18,6 +18,7 @@ import CVISATypes
 		vi: ViSession,
 		withReply reply: @escaping (ViStatus) -> Void
 	)
+  
 	/// Opens the instrument with the given VISA resource name.
 	/// - Parameters:
 	///   - session: The session of the default resouce manager.
@@ -32,11 +33,13 @@ import CVISATypes
 		timeout: ViUInt32,
 		withReply reply: @escaping (ViStatus, ViSession) -> Void
 	)
+  
 	/// Opens the default resource manager.
 	/// - Parameter reply: The status of the call, and the session of the resource manager.
 	func openDefaultRM(
 		withReply reply: @escaping (ViStatus, ViSession) -> Void
 	)
+  
 	/// Reads a message from an instrument.
 	/// - Parameters:
 	///   - vi: The session of the instrument to read from.
@@ -47,6 +50,7 @@ import CVISATypes
 		count: ViUInt32,
 		withReply reply: @escaping (ViStatus, Data, ViUInt32) -> Void
 	)
+  
 	/// Writes a message to an instrument.
 	/// - Parameters:
 	///   - vi: The session of the instrument to write to.
